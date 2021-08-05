@@ -1,28 +1,28 @@
 package queue;
 
-import linked_list.Node;
+import linked_list.LLNode;
 
 /**
  * @author Serj C.
  */
 public class MyLinkedListQueue {
-    private Node enqueue(Node head, int data) {
-        Node newNode = new Node(data);
+    private LLNode enqueue(LLNode head, int data) {
+        LLNode newLLNode = new LLNode(data);
 
         if (head == null) {
-            head = newNode;
+            head = newLLNode;
         } else {
-            Node listPointer = head;
+            LLNode listPointer = head;
             while (listPointer.next != null) {
                 listPointer = listPointer.next;
             }
-            listPointer.next = newNode;
+            listPointer.next = newLLNode;
         }
 
         return head;
     }
 
-    private Node dequeue(Node head) {
+    private LLNode dequeue(LLNode head) {
         if (head == null) {
             System.out.println("QUEUE UNDERFLOW!!!");
         } else {
@@ -33,7 +33,7 @@ public class MyLinkedListQueue {
         return head;
     }
 
-    private int peek(Node head) {
+    private int peek(LLNode head) {
         if (head == null) {
             return -1;
         } else {
@@ -41,12 +41,12 @@ public class MyLinkedListQueue {
         }
     }
 
-    private void display(Node head) {
+    private void display(LLNode head) {
         System.out.print("\nQueue: ");
         if (head == null) {
             System.out.println("EMPTY");
         } else {
-            Node listPointer = head;
+            LLNode listPointer = head;
             while (listPointer.next != null) {
                 System.out.print(listPointer.data + " ");
                 listPointer = listPointer.next;
@@ -58,7 +58,7 @@ public class MyLinkedListQueue {
 
     public static void main(String[] args) {
         MyLinkedListQueue myLinkedListQueue = new MyLinkedListQueue();
-        Node head = null;
+        LLNode head = null;
 
         System.out.println("\n******* QUEUE (LINKED LIST BASED) *******");
         head = myLinkedListQueue.enqueue(head, 1);

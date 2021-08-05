@@ -1,6 +1,6 @@
 package stack;
 
-import linked_list.Node;
+import linked_list.LLNode;
 
 import java.util.Scanner;
 
@@ -8,8 +8,8 @@ import java.util.Scanner;
  * @author Serj C.
  */
 public class MyLinkedListStack {
-    private Node push(int data, Node head) {
-        Node newElement = new Node(data);
+    private LLNode push(int data, LLNode head) {
+        LLNode newElement = new LLNode(data);
 
         if (head != null) {
             newElement.next = head;
@@ -19,7 +19,7 @@ public class MyLinkedListStack {
         return head;
     }
 
-    private Node pop(Node head) {
+    private LLNode pop(LLNode head) {
         if (head == null) {
             System.out.println("STACK UNDERFLOW!!!");
         } else {
@@ -30,12 +30,12 @@ public class MyLinkedListStack {
         return head;
     }
 
-    private void display(Node head) {
+    private void display(LLNode head) {
         System.out.print("Stack: ");
         if (head == null) {
             System.out.println("NO NODES");
         } else {
-            Node listPointer = head;
+            LLNode listPointer = head;
             while (listPointer.next != null) {
                 System.out.print(listPointer.data + " ");
                 listPointer = listPointer.next;
@@ -45,11 +45,11 @@ public class MyLinkedListStack {
         }
     }
 
-    private boolean isEmpty(Node head) {
+    private boolean isEmpty(LLNode head) {
         return head == null;
     }
 
-    private int peek(Node head) {
+    private int peek(LLNode head) {
         if (head == null) {
             return -1;
         }
@@ -58,7 +58,7 @@ public class MyLinkedListStack {
 
     public static void main(String[] args) {
         MyLinkedListStack linkedListStack = new MyLinkedListStack();
-        Node head = null;
+        LLNode head = null;
         Scanner in = new Scanner(System.in);
 
         do {

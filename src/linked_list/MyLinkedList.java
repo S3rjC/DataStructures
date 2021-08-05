@@ -6,64 +6,64 @@ import java.util.Scanner;
  * @author Serj C.
  */
 public class MyLinkedList {
-    private Node head;
+    private LLNode head;
 
-    private Node insertFront(int data, Node head) {
-        Node newNode = new Node(data);
+    private LLNode insertFront(int data, LLNode head) {
+        LLNode newLLNode = new LLNode(data);
 
         if (head != null) {
-            newNode.next = head;
+            newLLNode.next = head;
         }
-        head = newNode;
+        head = newLLNode;
 
         return head;
     }
 
-    private Node insertEnd(int data, Node head) {
-        Node newNode = new Node(data);
+    private LLNode insertEnd(int data, LLNode head) {
+        LLNode newLLNode = new LLNode(data);
 
         if (head == null) {
-            head = newNode;
+            head = newLLNode;
         } else {
-            Node nodePointer = head;
-            while (nodePointer.next != null) {
-                nodePointer = nodePointer.next;
+            LLNode listPointer = head;
+            while (listPointer.next != null) {
+                listPointer = listPointer.next;
             }
-            nodePointer.next = newNode;
+            listPointer.next = newLLNode;
         }
 
         return head;
     }
 
-    private Node insertAtPos(int data, int pos, Node head) {
-        Node newNode = new Node(data);
+    private LLNode insertAtPos(int data, int pos, LLNode head) {
+        LLNode newLLNode = new LLNode(data);
 
         if (pos == 1) {
-            newNode.next = head;
-            head = newNode;
+            newLLNode.next = head;
+            head = newLLNode;
         } else {
-            Node nodePointer = head;
-            for (int i = 1; nodePointer != null && i < pos-1; i++) {
-                nodePointer = nodePointer.next;
+            LLNode listPointer = head;
+            for (int i = 1; listPointer != null && i < pos-1; i++) {
+                listPointer = listPointer.next;
             }
-            newNode.next = nodePointer.next;
-            nodePointer.next = newNode;
+            newLLNode.next = listPointer.next;
+            listPointer.next = newLLNode;
         }
 
         return head;
     }
 
-    private Node delete(int pos, Node head) {
+    private LLNode delete(int pos, LLNode head) {
         if (head != null) {
-            Node nodePointer = head;
+            LLNode listPointer = head;
 
             if (pos == 1) {
-                head = nodePointer.next;
+                head = listPointer.next;
             } else {
-                for (int i = 1; nodePointer != null && i < pos-1; i++) {
-                    nodePointer = nodePointer.next;
+                for (int i = 1; listPointer != null && i < pos-1; i++) {
+                    listPointer = listPointer.next;
                 }
-                nodePointer.next = nodePointer.next.next;
+                listPointer.next = listPointer.next.next;
             }
         } else {
             System.out.println("Linked list is empty.");
@@ -72,35 +72,35 @@ public class MyLinkedList {
         return head;
     }
 
-    int length(Node head) {
-        Node nodePointer = head;
+    int length(LLNode head) {
+        LLNode listPointer = head;
 
-        if (nodePointer == null) {
+        if (listPointer == null) {
             return 0;
         } else {
             int length = 0;
-            while (nodePointer != null) {
-                nodePointer = nodePointer.next;
+            while (listPointer != null) {
+                listPointer = listPointer.next;
                 length++;
             }
             return length;
         }
     }
 
-    Node reverse(Node head) {
-        Node nodePointer = head;
-        Node prevNode = null;
-        Node nextNode = null;
+    LLNode reverse(LLNode head) {
+        LLNode listPointer = head;
+        LLNode prevLLNode = null;
+        LLNode nextLLNode = null;
 
-        if (nodePointer != null) {
-            while (nodePointer != null) {
-                nextNode = nodePointer.next;
-                nodePointer.next = prevNode;
+        if (listPointer != null) {
+            while (listPointer != null) {
+                nextLLNode = listPointer.next;
+                listPointer.next = prevLLNode;
 
-                prevNode = nodePointer;
-                nodePointer = nextNode;
+                prevLLNode = listPointer;
+                listPointer = nextLLNode;
             }
-            head = prevNode;
+            head = prevLLNode;
         } else {
             System.out.println("Linked List is empty.");
         }
@@ -108,8 +108,8 @@ public class MyLinkedList {
         return head;
     }
 
-    void display(Node head) {
-        Node listPointer = head;
+    void display(LLNode head) {
+        LLNode listPointer = head;
 
         System.out.print("Linked List: ");
         while (listPointer.next != null) {

@@ -3,11 +3,11 @@ package linked_list;
 /**
  * @author Serj C.
  */
-public class Node {
+public class LLNode {
     public int data;
-    public Node next;
+    public LLNode next;
 
-    public Node(int data) {
+    public LLNode(int data) {
         this.data = data;
     }
 }
