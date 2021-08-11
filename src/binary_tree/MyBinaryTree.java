@@ -14,16 +14,6 @@ public class MyBinaryTree {
         preorder(root.right);
     }
 
-    private static void postorder(BTNode root) {
-        if (root == null) {
-            return;
-        }
-
-        postorder(root.left);
-        postorder(root.right);
-        System.out.print(root.data + " ");
-    }
-
     private static void inorder(BTNode root) {
         if (root == null) {
             return;
@@ -32,6 +22,16 @@ public class MyBinaryTree {
         inorder(root.left);
         System.out.print(root.data + " ");
         inorder(root.right);
+    }
+
+    private static void postorder(BTNode root) {
+        if (root == null) {
+            return;
+        }
+
+        postorder(root.left);
+        postorder(root.right);
+        System.out.print(root.data + " ");
     }
 
     public static void main(String[] args) {
@@ -59,12 +59,12 @@ public class MyBinaryTree {
         preorder(root);
         System.out.println();
 
-        System.out.print("Postorder: ");
-        postorder(root);
-        System.out.println();
-
         System.out.print("Inorder: ");
         inorder(root);
+        System.out.println();
+
+        System.out.print("Postorder: ");
+        postorder(root);
         System.out.println();
     }
 }

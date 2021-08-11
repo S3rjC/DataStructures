@@ -1,0 +1,29 @@
+Binary Tree Recursion
+
+Preorder
+--------
+1) print(root=1)
+left=2---------------------------------------------------------------------->2) print(root=2)
+right=3------------>5) print(root=3)  	   			       			         left=4---------------------------------->3) print(root=4)
+		             left=6------------------------------->6) print(root=6)  right=5-------------->4) print(root=5)   left=NULL
+		             right=7----------->7) print(root=7)   left=NULL     		                   left=NULL  	      right=NULL
+					                    left=NULL          right=NULL                   	       right=NULL
+					                    right=NULL
+
+Inorder
+-------
+left=2---------------------------------------------------------------------->left=4---------------------------------->left=NULL
+4) print(root=1)                                                             2) print(root=2)                         1) print(root=4)
+right=3------------>left=6------------------------------->left=NULL          right=5-------------->left=NULL          right=NULL
+                    6) print(root=3)                     5) print(root=6)                          3) print(root=5)
+                    right=7----------->left=NULL         right=NULL                                right=NULL
+                                        7) print(root=7)
+                                        right=NULL
+
+Postorder
+---------
+left=2---------------------------------------------------------------------->left=4---------------------------------->left=NULL
+right=3------------>left=6------------------------------->left=NULL	         right=5-------------->left=NULL		  right=NULL
+7) print(root=1)	right=7----------->left=NULL          right=NULL	     3) print(root=2)      right=NULL		  1) print(root=4)
+					6) print(root=3)   right=NULL         4) print(root=6)                         2) print(root=5)
+					                   5) print(root=7)
